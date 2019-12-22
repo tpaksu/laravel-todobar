@@ -3,8 +3,8 @@
 namespace TPaksu\TodoBar;
 
 use Closure;
-use GuzzleHttp\RedirectMiddleware;
 use Illuminate\Container\Container;
+use Illuminate\Http\Response;
 
 class TodoBarMiddleware {
 
@@ -30,7 +30,10 @@ class TodoBarMiddleware {
     public function handle($request, Closure $next)
     {
         $response = $next($request);
-        $this->todobar->inject($response);
+
+        if($response instanceof Response){
+            $this->todobar->inject($response);
+        }
 
         return $response;
     }
