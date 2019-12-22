@@ -1,0 +1,34 @@
+{
+    "name": "tpaksu/laravel-todobar",
+    "description": "A simple todo list drawer for development tasks listing",
+    "type": "library",
+    "version": "1.0.0-dev",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Taha Paksu",
+            "email": "tpaksu@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "TPaksu\\TodoBar\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "TPaksu\\TodoBar\\Tests\\": "tests/"
+        }
+    },
+    "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "TPaksu\\TodoBar\\TodoBarServiceProvider"
+            ],
+            "aliases": {
+                "TodoBar": "TPaksu\\TodoBar\\Facade"
+            }
+        }
+    }
+}

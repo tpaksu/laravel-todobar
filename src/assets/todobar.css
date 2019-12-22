@@ -1,0 +1,38 @@
+.laravel-todobar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 0;
+}
+
+.laravel-todobar-handle {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 100px;
+    background: white;
+    transform: rotate(90deg);
+    left: -46px;
+    border: 1px solid #ddd;
+    width: 67px;
+    padding: 0px 10px;
+    border-radius: 0 0 5px 5px;
+}
+
+html.todobar-active .laravel-todobar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 20%;
+    padding: 15px;
+    background: white;
+    border: 1px solid #ddd;
+}
+
+html.todobar-active body {
+    width: 80%;
+}
