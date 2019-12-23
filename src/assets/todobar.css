@@ -1,38 +1,117 @@
 .laravel-todobar {
-    position: fixed;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  height: 100vh;
+}
+
+.laravel-todobar .laravel-todobar-container {
+  display: none;
+  height: 100vh;
+  flex-direction: column;
+}
+
+html.todobar-active .laravel-todobar .laravel-todobar-container {
+  display: flex;
 }
 
 .laravel-todobar-handle {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: 100px;
-    background: white;
-    transform: rotate(90deg);
-    left: -46px;
-    border: 1px solid #ddd;
-    width: 67px;
-    padding: 0px 10px;
-    border-radius: 0 0 5px 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 74px;
+  background: white;
+  transform: rotate(90deg);
+  left: -46px;
+  border: 1px solid #ddd;
+  width: 67px;
+  padding: 0px 10px;
+  border-radius: 0 0 5px 5px;
+  box-shadow: -2px 0 2px 1px rgba(0, 0, 0, 0.05);
 }
 
 html.todobar-active .laravel-todobar {
-    position: fixed;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: 20%;
-    padding: 15px;
-    background: white;
-    border: 1px solid #ddd;
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 20%;
+  padding: 0px;
+  background: white;
+  border: 1px solid #ddd;
+  box-shadow: -2px 0 2px 1px rgba(0, 0, 0, 0.05);
 }
 
 html.todobar-active body {
-    width: 80%;
+  width: 80%;
+}
+
+.laravel-todobar .todobar-projects-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  background: #fcfcfd;
+}
+.laravel-todobar .todobar-projects-select {
+  padding: 5px;
+  margin-left: 4px;
+  flex: 1;
+}
+
+.laravel-todobar .todobar-projects-container button {
+  border: 1px solid #ddd;
+  margin-left: 4px;
+}
+
+.laravel-todobar .laravel-todobar-content {
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 56.8px);
+}
+
+.laravel-todobar .laravel-todobar-form {
+    flex: 0;
+    padding: 15px;
+    background: #fcfcfd;
+    border-top: 1px solid #ddd;
+}
+
+.laravel-todobar .laravel-todobar-content h3 {
+    background: #eee;
+    padding: 15px;
+    border-top: 1px solid #dde;
+    border-bottom: 1px solid #dde;
+    margin-bottom: 0;
+    flex: 0;
+}
+
+.laravel-todobar ul.laravel-todobar-list {
+  list-style-type: none;
+  padding: 0;
+  line-height: 1.5;
+  overflow-y: scroll;
+  flex: 1;
+  margin-bottom: 0;
+}
+
+.laravel-todobar ul.laravel-todobar-list li {
+    padding: 15px;
+    border-bottom: 1px solid #dde;
+}
+
+.laravel-todobar ul.laravel-todobar-list li input:checked + label{
+    color: slategray;
+    text-decoration: line-through;
+    text-decoration-color: slategray;
+}
+
+.laravel-todobar ul.laravel-todobar-list li.custom-checkbox-odd {
+    background: #f9f9f9;
 }

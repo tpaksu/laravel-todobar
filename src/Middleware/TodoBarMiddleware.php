@@ -1,10 +1,11 @@
 <?php
 
-namespace TPaksu\TodoBar;
+namespace TPaksu\TodoBar\Middleware;
 
 use Closure;
 use Illuminate\Container\Container;
 use Illuminate\Http\Response;
+use TPaksu\TodoBar\Controllers\TodoBarController;
 
 class TodoBarMiddleware {
 

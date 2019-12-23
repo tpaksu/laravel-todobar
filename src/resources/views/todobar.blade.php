@@ -1,14 +1,17 @@
 <div class="laravel-todobar">
+    <input type="hidden" name="todobar-token" value="{{csrf_token()}}">
     <div class="laravel-todobar-handle" onclick="document.querySelector('html').classList.toggle('todobar-active')">TodoBar</div>
-    @include('laravel-todobar::partials.projects')
-    <div class="laravel-todobar-content">
-        <h3>Tasks</h3>
-        <ul class="laravel-todobar-list">
-            <li><input type="checkbox">&nbsp;Task #1</li>
-            <li><input type="checkbox">&nbsp;Task #2</li>
-            <li><input type="checkbox">&nbsp;Task #3</li>
-            <li><input type="checkbox">&nbsp;Task #4</li>
-            <li>@include("laravel-todobar::partials.form")</li>
-        </ul>
+    <div class="laravel-todobar-container">
+        @include('laravel-todobar::partials.projects')
+        <div class="laravel-todobar-content">
+            <h3>Tasks</h3>
+            <ul class="laravel-todobar-list">
+                @include("laravel-todobar::partials.tasks")
+            </ul>
+            @include("laravel-todobar::partials.form")
+        </div>
     </div>
 </div>
+<script>
+    document.querySelector(".laravel-todobar-handle").dispatchEvent(new Event("click"));
+</script>
