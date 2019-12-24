@@ -46,35 +46,34 @@ html.todobar-active .laravel-todobar {
   box-shadow: -2px 0 2px -1px rgba(0, 0, 0, 0.1);
 }
 
-@media screen and (max-width: 1440px){
-    html.todobar-active .laravel-todobar {
-        width: 30vw;
-    }
+@media screen and (max-width: 1440px) {
+  html.todobar-active .laravel-todobar {
+    width: 30vw;
+  }
 }
 
-@media screen and (max-width: 1200px){
-    html.todobar-active .laravel-todobar {
-        width: 40vw;
-    }
+@media screen and (max-width: 1200px) {
+  html.todobar-active .laravel-todobar {
+    width: 40vw;
+  }
 }
 
-
-@media screen and (max-width: 992px){
-    html.todobar-active .laravel-todobar {
-        width: 40vw;
-    }
+@media screen and (max-width: 992px) {
+  html.todobar-active .laravel-todobar {
+    width: 40vw;
+  }
 }
 
-@media screen and (max-width: 767px){
-    html.todobar-active .laravel-todobar {
-        width: 60vw;
-    }
+@media screen and (max-width: 767px) {
+  html.todobar-active .laravel-todobar {
+    width: 60vw;
+  }
 }
 
-@media screen and (max-width: 576px){
-    html.todobar-active .laravel-todobar {
-        width: 87vw;
-    }
+@media screen and (max-width: 576px) {
+  html.todobar-active .laravel-todobar {
+    width: 87vw;
+  }
 }
 
 html.todobar-active body.laravel-todobar-split {
@@ -138,7 +137,7 @@ html.todobar-active body.laravel-todobar-split {
   border-bottom: 1px solid #dde;
 }
 
-.laravel-todobar ul.laravel-todobar-list li input:checked + label {
+.laravel-todobar ul.laravel-todobar-list li input:checked + label .label-content {
   color: slategray;
   text-decoration: line-through;
   text-decoration-color: slategray;
@@ -158,4 +157,31 @@ html.todobar-active body.laravel-todobar-split {
   left: 0;
   right: 0;
   bottom: 0;
+}
+
+.laravel-todobar ul.laravel-todobar-list li .form-group input[type="checkbox"] {
+  display: none;
+}
+
+.laravel-todobar ul.laravel-todobar-list li .form-group .checkbox-dummy {
+  background: white;
+  color: white;
+  border: 1px solid #aaa;
+  width: 20px;
+  height: 20px;
+  transform: translateY(100%) translateX(-30px);
+  border-radius: 5px;
+  padding: 0px 4px;
+  font-weight: bold;
+  text-decoration: none !important;
+}
+
+.laravel-todobar ul.laravel-todobar-list li input:checked + label .checkbox-dummy {
+  background: green;
+}
+
+.laravel-todobar ul.laravel-todobar-list li label {
+  display: block;
+  padding-left: 30px;
+  margin-top: -20px;
 }

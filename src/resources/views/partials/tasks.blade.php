@@ -1,12 +1,16 @@
 @isset($tasks)
 @forelse($tasks as $key => $task)
-<li class="{{$loop->index % 2 == 0 ? 'custom-checkbox-even' : 'custom-checkbox-odd'}}">
-    <div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" id="todobar-task-{{$key}}"
-        @if($task->completed ?? false) checked @endif>
-        <label class="custom-control-label" for="todobar-task-{{$key}}"
-            onclick="todobar.tasks.setStatus('{{$project_id}}', '{{$key}}', document.querySelector('#' + this.getAttribute('for')).checked ? false : true);">
-            {{$task->content}}
+<li class="laravel-todobar-task {{$loop->index % 2 == 0 ? 'custom-checkbox-even' : 'custom-checkbox-odd'}}">
+    <div class="form-group">
+        <input type="checkbox" id="todobar-task-{{$key}}" @if($task->completed ?? false) checked @endif
+        onclick="todobar.tasks.setStatus('{{$project_id}}', '{{$key}}', document.querySelector('#' + this.id).checked);">
+        <label>
+            <div class="checkbox-dummy" onclick="var checkbox = document.querySelector('#todobar-task-{{$key}}'); checkbox.checked = !checkbox.checked; checkbox.dispatchEvent(new Event('click'));">
+                &check;
+            </div>
+            <div class="label-content">
+                {{$task->content}}
+            </div>
         </label>
     </div>
     <div class="text-right">
