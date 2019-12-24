@@ -6,7 +6,11 @@
         onclick="todobar.tasks.setStatus('{{$project_id}}', '{{$key}}', document.querySelector('#' + this.id).checked);">
         <label>
             <div class="checkbox-dummy" onclick="var checkbox = document.querySelector('#todobar-task-{{$key}}'); checkbox.checked = !checkbox.checked; checkbox.dispatchEvent(new Event('click'));">
-                &check;
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="11pt" height="11pt" viewBox="0 0 16 13" version="1.1">
+                    <g id="surface1">
+                        <path style=" stroke:none;fill-rule:nonzero;fill:white;fill-opacity:1;" d="M 5.96875 12.878906 L 0 6.90625 L 2.847656 4.058594 L 5.96875 7.179688 L 13.152344 0 L 16 2.847656 Z M 5.96875 12.878906 "/>
+                    </g>
+                </svg>
             </div>
             <div class="label-content">
                 {{$task->content}}

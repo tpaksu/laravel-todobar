@@ -171,9 +171,9 @@ html.todobar-active body.laravel-todobar-split {
   height: 20px;
   transform: translateY(100%) translateX(-30px);
   border-radius: 5px;
-  padding: 0px 4px;
-  font-weight: bold;
-  text-decoration: none !important;
+  display: flex;
+  align-items:center;
+  justify-content: center;
 }
 
 .laravel-todobar ul.laravel-todobar-list li input:checked + label .checkbox-dummy {
