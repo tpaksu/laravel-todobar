@@ -8,6 +8,8 @@ TodoBar creates an overlay right sidebar to ease your Laravel projects task mana
 
 - It uses Bootstrap components as the frontend library, and for the "Edit Task" modal.
 
+## Preview
+![Preview Image](preview.png)
 
 ## Installation
 You can install the package via composer with:
