@@ -94,12 +94,23 @@ let todobar = {
                 }
             });
         },
-        edit: function (project_id, task_id, task) {
+        edit_form: function(project_id, task_id, task){
+            document.querySelector("#laravel-todobar_project_id").value = project_id;
+            document.querySelector("#laravel-todobar_task_id").value = task_id;
+            document.querySelector("#laravel-todobar_content").value = task;
+            $("#laravel-todobar-edit-modal").modal("show");
+        },
+        edit: function () {
+            let project_id = document.querySelector("#laravel-todobar_project_id").value,
+            task_id = document.querySelector("#laravel-todobar_task_id").value,
+            content = document.querySelector("#laravel-todobar_content").value;
+
             todobar.fetcher.patch("/projects/" + project_id + "/tasks/" + task_id, {
-                task: task
+                content: content
             }, function (result) {
                 if (result.status == "success") {
                     todobar.tasks.get(project_id);
+                    $("#laravel-todobar-edit-modal").modal("hide");
                 } else if (result.status == "error") {
                     alert(result.error);
                 }
