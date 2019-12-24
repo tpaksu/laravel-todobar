@@ -18,6 +18,7 @@ class TodoBarServiceProvider extends ServiceProvider
     {
         $this->loadRoutesFrom(__DIR__ . '/routes/web.php');
         $this->loadViewsFrom(__DIR__ . '/resources/views', 'laravel-todobar');
+        $this->mergeConfigFrom(__DIR__ . '/config/todobar.php', "todobar");
         $this->publishes([
             __DIR__ . '/config/todobar.php' => config_path('todobar.php'),
             __DIR__ . '/resources/views' => base_path('resources/views/tpaksu/todobar'),
@@ -31,13 +32,15 @@ class TodoBarServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->make('TPaksu\TodoBar\Controllers\TodoBarController');
+        if(config('todobar.enabled', false) === true){
+            $this->app->make('TPaksu\TodoBar\Controllers\TodoBarController');
 
-        $this->app->singleton(DataStorageInterface::class, function () {
-            return new JSONStorage("items.json");
-        });
+            $this->app->singleton(DataStorageInterface::class, function () {
+                return new JSONStorage("items.json");
+            });
 
-        $this->app["router"]->pushMiddlewareToGroup("web", "\TPaksu\TodoBar\Middleware\TodoBarMiddleware");
+            $this->app["router"]->pushMiddlewareToGroup("web", "\TPaksu\TodoBar\Middleware\TodoBarMiddleware");
+        }
     }
 
 }

@@ -1,6 +1,7 @@
 <?php
 
 return [
-    "enabled" => env("TODOBAR_ENABLED", false),
-    "project" => null
+    "enabled" => env("TODOBAR_ENABLED", true),
+    "start_visible" => true,
+    "overlay" => true
 ];

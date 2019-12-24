@@ -18,20 +18,20 @@ html.todobar-active .laravel-todobar .laravel-todobar-container {
 }
 
 .laravel-todobar-handle {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  top: 74px;
-  background: white;
-  transform: rotate(90deg);
-  left: -46px;
-  border: 1px solid #ddd;
-  width: 67px;
-  padding: 0px 10px;
-  border-radius: 0 0 5px 5px;
-  box-shadow: -2px 0 2px 1px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 57px;
+    background:
+    #FF2D20;
+    font-weight: bold;
+    left: -36px;
+    padding: 9px;
+    border-radius: 5px 0 0 5px;
+    box-shadow: -2px 0 2px -1px rgba(0, 0, 0, 0.4);
+    z-index: -1;
 }
 
 html.todobar-active .laravel-todobar {
@@ -43,10 +43,10 @@ html.todobar-active .laravel-todobar {
   padding: 0px;
   background: white;
   border: 1px solid #ddd;
-  box-shadow: -2px 0 2px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: -2px 0 2px -1px rgba(0, 0, 0, 0.1);
 }
 
-html.todobar-active body {
+html.todobar-active body.laravel-todobar-split {
   width: 80%;
 }
 
@@ -114,4 +114,16 @@ html.todobar-active body {
 
 .laravel-todobar ul.laravel-todobar-list li.custom-checkbox-odd {
     background: #f9f9f9;
+}
+
+.laravel-todobar .laravel-todobar-loader {
+    background: rgba(255, 255,255, 0.7) no-repeat 50% 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }

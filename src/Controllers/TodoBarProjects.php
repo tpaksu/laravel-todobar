@@ -8,6 +8,9 @@ use TPaksu\TodoBar\Storage\DataStorageInterface;
 
 class TodoBarProjects extends Controller
 {
+
+    protected $storage;
+
     public function __construct(DataStorageInterface $storage)
     {
         $this->storage = $storage;
@@ -19,7 +22,7 @@ class TodoBarProjects extends Controller
      */
     public function index()
     {
-        $data = $this->storage->all();
+        $data = collect($this->storage->all())->pluck("name");
         return response()->json(["status" => "success", "data" => $data], 200);
     }
 
@@ -33,6 +36,7 @@ class TodoBarProjects extends Controller
     {
         $new_id = $this->storage->insert([
             "name" => $request->name,
+            "tasks" => []
         ]);
         return response()->json(["status" => "success", "id" => $new_id, "name" => $request->name], 200);
 
@@ -46,7 +50,7 @@ class TodoBarProjects extends Controller
      */
     public function show($id)
     {
-        $tasks = $this->storage->find($id);
+        $tasks = $this->storage->find($id) ?? [];
         return response()->json(["status" => "success", "tasks" => $tasks], 200);
     }
 

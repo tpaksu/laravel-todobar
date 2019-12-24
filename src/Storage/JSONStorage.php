@@ -2,7 +2,6 @@
 
 namespace TPaksu\TodoBar\Storage;
 
-use Illuminate\Http\Resources\Json\ResourceCollection;
 use Illuminate\Support\Facades\Storage;
 
 class JSONStorage implements DataStorageInterface
@@ -27,7 +26,7 @@ class JSONStorage implements DataStorageInterface
 
     public function find($id)
     {
-        return $this->json->projects[$id];
+        return $this->json->projects[$id] ?? null;
     }
 
     public function insert($values)
@@ -39,11 +38,11 @@ class JSONStorage implements DataStorageInterface
         $id = count($this->json->projects);
 
         // store new item
-        $this->json->projects[$id] = [
-            "id" => $id,
-            "name" => $values["name"],
-            "items" => []
-        ];
+        $this->json->projects[$id] = new \stdClass();
+
+        foreach($values as $key => $value){
+            $this->json->projects[$id]->{$key} = $value;
+        }
         // update the file
         $this->updateStorage();
 
@@ -53,8 +52,12 @@ class JSONStorage implements DataStorageInterface
 
     public function update($id, $values)
     {
-        $this->json->projects[$id]->name = $values["name"];
-        $this->updateStorage();
+        if(isset($this->json->projects[$id])){
+            foreach($values as $key => $value){
+                $this->json->projects[$id]->{$key} = $value;
+            }
+            $this->updateStorage();
+        }
     }
 
     public function delete($id)
