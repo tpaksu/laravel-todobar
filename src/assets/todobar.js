@@ -21,6 +21,9 @@ let todobar = {
                 });
                 projects_select.innerHTML = options;
                 projects_select.value = (initial == undefined || initial == null) ? -1 : initial;
+                if(projects_select.value == ""){
+                    projects_select.value = -1;
+                }
                 projects_select.dispatchEvent(new Event("change"));
             });
         },
