@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\View;
 class TodoBarController extends Controller {
 
     public function getScripts(){
-        return "<script type='text/javascript'>" . file_get_contents(__DIR__."\\..\\assets\\todobar.js") . "</script>";
+        return "<script type='text/javascript'>" . file_get_contents($this->assets_path("todobar.js")) . "</script>";
     }
 
     public function getDrawer(){
@@ -17,7 +17,13 @@ class TodoBarController extends Controller {
     }
 
     public function getStyles(){
-        return "<style>" . file_get_contents(dirname(__FILE__) . "\\..\\assets\\todobar" . (\config("todobar.dark_mode", false) === true ? "-dark" : "") . ".css") . "</style>";
+        $dark_mode = config("todobar.dark_mode", false);
+        $file = "todobar.css";
+        if($dark_mode){
+            $file = "todobar-dark.css";
+        }
+        $path = $this->assets_path($file);
+        return "<style>" . file_get_contents($path) . "</style>";
     }
 
     public function getInjection()
@@ -27,5 +33,10 @@ class TodoBarController extends Controller {
 
     public function inject(Response $response){
         $response->setContent(str_replace("</body>", "</body>" . $this->getInjection(), $response->getContent()));
+    }
+
+    public function assets_path($file)
+    {
+        return implode(DIRECTORY_SEPARATOR, [__DIR__, "..", "assets", $file]);
     }
 }
