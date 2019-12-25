@@ -7,9 +7,19 @@ TodoBar creates an overlay right sidebar to ease your Laravel projects task mana
 - It supports multiple groups, which you can use to track different aspects of your project in a single file, and you can easily switch between groups with a single dropdown.
 
 - It uses Bootstrap components as the frontend library, and for the "Edit Task" modal.
+<br><br>
 
 ## Preview
-![Preview Image](preview.png)
+*Classic Mode*
+
+![Classic Mode](preview-classic.png)
+<br><br>
+*Dark Mode*
+
+![Dark Mode](preview-dark-mode.png)
+<br><br>
+
+
 
 ## Installation
 You can install the package via composer with:
@@ -23,6 +33,7 @@ The sidebar will be enabled by default, but you can disable it by adding
     TODOBAR_ENABLED=false
 
 to your environment variables and run `php artisan config:cache` to update the configuration cache.
+<br><br>
 
 
 ## Package Contents
@@ -44,6 +55,7 @@ The views used and published by this package:
     |   |-- projects.blade.php
     |   +-- tasks blade.php
     +-- todobar.blade.php
+<br><br>
 
 ## Extending
 
@@ -55,13 +67,16 @@ The package contains a `Storage` folder which contains an interface `DataStorage
         return new JSONStorage("items.json");
     });
 ```
+<br><br>
 
 ## Contributing
 
 You are always welcome to send pull requests to this package. Please describe why and what changed in the code, so I can approve them quickly.
+<br><br>
 
 ## Security
 If you discover any security related issues, please email tpaksu@gmail.com directly instead of using the issue tracker.
+<br><br>
 
 ## License
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
