@@ -17,7 +17,7 @@ class TodoBarController extends Controller {
     }
 
     public function getStyles(){
-        return "<style>" . file_get_contents(dirname(__FILE__)."\\..\\assets\\todobar.css") . "</style>";
+        return "<style>" . file_get_contents(dirname(__FILE__) . "\\..\\assets\\todobar" . (\config("todobar.dark_mode", false) === true ? "-dark" : "") . ".css") . "</style>";
     }
 
     public function getInjection()

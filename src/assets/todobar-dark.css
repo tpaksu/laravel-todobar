@@ -43,6 +43,7 @@ html.todobar-active .laravel-todobar {
   padding: 0px;
   background: white;
   border: 1px solid #ddd;
+  border-color: #343a40;
   box-shadow: -2px 0 2px -1px rgba(0, 0, 0, 0.1);
 }
 
@@ -87,6 +88,7 @@ html.todobar-active body.laravel-todobar-split {
   justify-content: center;
   padding: 15px;
   background: #fcfcfd;
+  background: #343a40;
 }
 
 .laravel-todobar .todobar-projects-select {
@@ -110,7 +112,9 @@ html.todobar-active body.laravel-todobar-split {
   flex: 0;
   padding: 15px;
   background: #fcfcfd;
+  background: #343a40;
   border-bottom: 1px solid #ddd;
+  border-color: #343a40;
 }
 
 .laravel-todobar .laravel-todobar-content h3 {
@@ -120,6 +124,11 @@ html.todobar-active body.laravel-todobar-split {
   border-bottom: 1px solid #dde;
   margin-bottom: 0;
   flex: 0;
+  background: #464b51;
+  border-color: #343a40;
+
+  color: white;
+  border-color: #343a40;
 }
 
 .laravel-todobar ul.laravel-todobar-list {
@@ -129,11 +138,16 @@ html.todobar-active body.laravel-todobar-split {
   overflow-y: scroll;
   flex: 1;
   margin-bottom: 0;
+  background: #343a40;
+  color: #eee;
 }
 
 .laravel-todobar ul.laravel-todobar-list li {
   padding: 15px;
   border-bottom: 1px solid #dde;
+  border-color: #343a40;
+  background: #343a40;
+  color: #eee;
 }
 
 .laravel-todobar ul.laravel-todobar-list li input:checked + label .label-content {
@@ -144,10 +158,11 @@ html.todobar-active body.laravel-todobar-split {
 
 .laravel-todobar ul.laravel-todobar-list li.custom-checkbox-odd {
   background: #f9f9f9;
+  background: #464b51;
 }
 
 .laravel-todobar .laravel-todobar-loader {
-  background: rgba(255, 255, 255, 0.7) no-repeat 50% 50%;
+  background: rgba(0, 0, 0, 0.7) no-repeat 50% 50%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -161,7 +176,7 @@ html.todobar-active body.laravel-todobar-split {
 
 .laravel-todobar ul.laravel-todobar-list li .form-group,
 .laravel-todobar ul.laravel-todobar-list li .form-group label {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .laravel-todobar ul.laravel-todobar-list li .form-group input[type="checkbox"] {
@@ -177,8 +192,9 @@ html.todobar-active body.laravel-todobar-split {
   transform: translateY(100%) translateX(-30px);
   border-radius: 5px;
   display: flex;
-  align-items:center;
+  align-items: center;
   justify-content: center;
+  border-color: #565b61;
 }
 
 .laravel-todobar ul.laravel-todobar-list li input:checked + label .checkbox-dummy {
@@ -189,4 +205,34 @@ html.todobar-active body.laravel-todobar-split {
   display: block;
   padding-left: 30px;
   margin-top: -20px;
+}
+
+.laravel-todobar-edit-modal .modal-content {
+    border-radius: calc(0.3rem + 2.6px);
+}
+
+.laravel-todobar-edit-modal .modal-body {
+  background: #40464b;
+}
+
+.laravel-todobar-edit-modal .modal-header {
+  background: #2d3032;
+  border-bottom: 1px solid #2a2c2e;
+}
+
+.laravel-todobar-edit-modal .modal-header button.close span {
+    text-shadow: 0 1px 0 #000;
+    color: #eee;
+}
+
+.laravel-todobar-edit-modal .modal-title {
+  color: #ccc;
+}
+
+.laravel-todobar-edit-modal .modal-footer {
+  background: #2d3032;
+  border-top: 1px solid #2a2c2e;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
 }

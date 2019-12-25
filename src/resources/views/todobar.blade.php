@@ -12,11 +12,11 @@
         </div>
     </div>
 </div>
-<div id="laravel-todobar-edit-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="laravel-todobar-edit-modal" aria-hidden="true">
+<div id="laravel-todobar-edit-modal" class="modal laravel-todobar-edit-modal fade" tabindex="-1" role="dialog" aria-labelledby="laravel-todobar-edit-modal-title" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="laravel-todobar-edit-modal">Edit Task</h5>
+                <h5 class="modal-title" id="laravel-todobar-edit-modal-title">Edit Task</h5>
                 <button class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

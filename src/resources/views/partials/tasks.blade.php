@@ -13,15 +13,10 @@
                 </svg>
             </div>
             <div class="label-content">
-                {{$task->content}}
+                {{$task->content}}&nbsp;<a href="javascript:void(0);" class="text-primary" onclick="todobar.tasks.edit_form('{{$project_id}}', '{{$key}}', '{{$task->content}}');">Edit</a>
+                <a href="javascript:void(0);" class="text-danger" onclick="todobar.tasks.delete('{{$project_id}}', '{{$key}}');">Delete</a>
             </div>
         </label>
-    </div>
-    <div class="text-right">
-        <button class="btn btn-sm btn-primary"
-            onclick="todobar.tasks.edit_form('{{$project_id}}', '{{$key}}', '{{$task->content}}');">Edit</button>
-        <button class="btn btn-sm btn-danger"
-            onclick="todobar.tasks.delete('{{$project_id}}', '{{$key}}');">Delete</button>
     </div>
 </li>
 @empty
