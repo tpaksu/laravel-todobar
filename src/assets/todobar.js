@@ -33,7 +33,11 @@ let todobar = {
                 todobar.fetcher.post("projects", {
                     name: project_name
                 }, (result) => {
-                    todobar.projects.get(parseInt(result.id, 10));
+                    if (result.status == "success") {
+                        todobar.projects.get(parseInt(result.id, 10));
+                    } else if (result.status == "error") {
+                        alert(result.error);
+                    }
                 });
             }
         },
@@ -86,12 +90,14 @@ let todobar = {
             });
         },
         add: function () {
-            let project_id = todobar.active_project, task = document.querySelector("#laravel-task-input").value;
+            let project_id = todobar.active_project, task_input = document.querySelector("#laravel-task-input"), task = task_input.value;
             todobar.fetcher.post("/projects/" + project_id + "/tasks", {
                 content: task
             }, function (result) {
                 if (result.status == "success") {
                     todobar.tasks.get(project_id);
+                    task_input.value = "";
+                    task_input.focus();
                 } else if (result.status == "error") {
                     alert(result.error);
                 }
