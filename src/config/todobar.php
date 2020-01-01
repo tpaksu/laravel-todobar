@@ -5,4 +5,10 @@ return [
     "start_visible" => true,
     "overlay" => true,
     "dark_mode" => false,
+    "storage" => [
+        "engine" => \TPaksu\TodoBar\Storage\JSONStorage::class,
+        "params" => [
+            "file" => "items.json",
+        ],
+    ],
 ];

@@ -4,7 +4,6 @@ namespace TPaksu\TodoBar;
 
 use Illuminate\Support\ServiceProvider;
 use TPaksu\TodoBar\Storage\DataStorageInterface;
-use TPaksu\TodoBar\Storage\JSONStorage;
 
 class TodoBarServiceProvider extends ServiceProvider
 {
@@ -32,15 +31,19 @@ class TodoBarServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        if(config('todobar.enabled', false) === true){
+        if (config('todobar.enabled', false) === true) {
             $this->app->make('TPaksu\TodoBar\Controllers\TodoBarController');
 
             $this->app->singleton(DataStorageInterface::class, function () {
-                return new JSONStorage("items.json");
+                $storage = config("todobar.storage.engine", Storage\JSONStorage::class);
+                $config = config("todobar.storage.params", ["file" => "items.json"]);
+                if (class_exists($storage)) {
+                    return new $storage($config);
+                }
+                return new Storage\JSONStorage(["file" => "items.json"]);
             });
 
             $this->app["router"]->pushMiddlewareToGroup("web", "\TPaksu\TodoBar\Middleware\TodoBarMiddleware");
         }
     }
-
 }

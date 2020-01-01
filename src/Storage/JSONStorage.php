@@ -10,13 +10,16 @@ class JSONStorage implements DataStorageInterface
     protected $json = null;
     protected $file = null;
 
-    public function __construct($file)
+    public function __construct($params)
     {
-        $this->file = $file;
+        $this->file = $params["file"];
         $this->client = Storage::createLocalDriver(['root' => resource_path("/todobar")]);
 
-        if($this->client->exists($file) === false) $this->client->put($file, "{\"projects\": []}");
-        $this->json = json_decode($this->client->get($file));
+        if ($this->client->exists($this->file) === false) {
+            $this->client->put($this->file, "{\"projects\": []}");
+        }
+
+        $this->json = json_decode($this->client->get($this->file));
     }
 
     public function all()
@@ -40,7 +43,7 @@ class JSONStorage implements DataStorageInterface
         // store new item
         $this->json->projects[$id] = new \stdClass();
 
-        foreach($values as $key => $value){
+        foreach ($values as $key => $value) {
             $this->json->projects[$id]->{$key} = $value;
         }
         // update the file
@@ -52,8 +55,8 @@ class JSONStorage implements DataStorageInterface
 
     public function update($id, $values)
     {
-        if(isset($this->json->projects[$id])){
-            foreach($values as $key => $value){
+        if (isset($this->json->projects[$id])) {
+            foreach ($values as $key => $value) {
                 $this->json->projects[$id]->{$key} = $value;
             }
             $this->updateStorage();
