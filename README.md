@@ -59,14 +59,17 @@ The views used and published by this package:
 
 ## Extending
 
-The package contains a `Storage` folder which contains an interface `DataStorageInterface` defining the data storage provider repository, and an example `JSONStorage` class which handles the data persisting in JSON file. If you want to use something different than a JSON file to store your tasks, you can create a class implementing `DataStorageInterface` and make the package use that instead by injecting your class instead `JSONStorage` in `TodoBarServiceProvider.php` file:
+The package contains a `Storage` folder which contains an interface `DataStorageInterface` defining the data storage provider repository, and an example `JSONStorage` class which handles the data persisting in JSON file. If you want to use something different than a JSON file to store your tasks, you can create a class implementing `DataStorageInterface` and make the package use that instead by changing the configuration like this:
 
 ```php
-    $this->app->singleton(DataStorageInterface::class, function () {
-        // replace this line with your class
-        return new JSONStorage("items.json");
-    });
+    "storage" => [
+        "engine" => \App\TodoBar\CustomStorage::class,
+        "params" => [
+            "param" => "[ Passed to your class ]",
+        ],
+    ],
 ```
+
 <br><br>
 
 ## Contributing
@@ -79,4 +82,4 @@ If you discover any security related issues, please email tpaksu@gmail.com direc
 <br><br>
 
 ## License
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+The MIT License (MIT).
