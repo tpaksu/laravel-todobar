@@ -1,5 +1,9 @@
 # Laravel TodoBar
 
+[![Latest Stable Version](https://poser.pugx.org/tpaksu/laravel-todobar/version)](https://packagist.org/packages/tpaksu/laravel-todobar) [![Total Downloads](https://poser.pugx.org/tpaksu/laravel-todobar/downloads)](https://packagist.org/packages/tpaksu/laravel-todobar) [![License](https://poser.pugx.org/tpaksu/laravel-todobar/license)](https://packagist.org/packages/tpaksu/laravel-todobar)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/tpaksu/laravel-todobar.svg?style=flat-square)](https://packagist.org/packages/tpaksu/laravel-todobar) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/tpaksu/laravel-todobar/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/tpaksu/laravel-todobar/?branch=master)
+[![Code Intelligence Status](https://scrutinizer-ci.com/g/tpaksu/laravel-todobar/badges/code-intelligence.svg?b=master)](https://scrutinizer-ci.com/code-intelligence)
+
 TodoBar creates an overlay right sidebar to ease your Laravel projects task management.
 
 - It stores the tasks in a JSON file which is located in `/resources/todobar` folder, which is shared among your code in your repository, so you can get the tasks on every platform that you are developing your project.
