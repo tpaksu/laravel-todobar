@@ -32,7 +32,7 @@ class TodoBarMiddleware {
     {
         $response = $next($request);
 
-        if($response instanceof Response){
+        if ($response instanceof Response) {
             $this->todobar->inject($response);
         }
 

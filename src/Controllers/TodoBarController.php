@@ -8,18 +8,18 @@ use Illuminate\Support\Facades\View;
 
 class TodoBarController extends Controller {
 
-    public function getScripts(){
+    public function getScripts() {
         return "<script type='text/javascript'>" . file_get_contents($this->assets_path("todobar.js")) . "</script>";
     }
 
-    public function getDrawer(){
+    public function getDrawer() {
         return View::make("laravel-todobar::todobar");
     }
 
-    public function getStyles(){
+    public function getStyles() {
         $dark_mode = config("todobar.dark_mode", false);
         $file = "todobar.css";
-        if($dark_mode){
+        if ($dark_mode) {
             $file = "todobar-dark.css";
         }
         $path = $this->assets_path($file);
@@ -31,7 +31,7 @@ class TodoBarController extends Controller {
         return $this->getStyles() . $this->getDrawer() . $this->getScripts();
     }
 
-    public function inject(Response $response){
+    public function inject(Response $response) {
         $response->setContent(str_replace("</body>", "</body>" . $this->getInjection(), $response->getContent()));
     }
 

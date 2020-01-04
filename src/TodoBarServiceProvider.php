@@ -34,7 +34,7 @@ class TodoBarServiceProvider extends ServiceProvider
         if (config('todobar.enabled', false) === true) {
             $this->app->make('TPaksu\TodoBar\Controllers\TodoBarController');
 
-            $this->app->singleton(DataStorageInterface::class, function () {
+            $this->app->singleton(DataStorageInterface::class, function() {
                 $storage = config("todobar.storage.engine", Storage\JSONStorage::class);
                 $config = config("todobar.storage.params", ["file" => "items.json"]);
                 if (class_exists($storage)) {

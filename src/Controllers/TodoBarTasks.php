@@ -75,13 +75,13 @@ class TodoBarTasks extends Controller
      */
     public function update(Request $request, $project_id, $task_id)
     {
-        if($request->has("status")){
+        if ($request->has("status")) {
             $request->validate([
                 "status" => "required|boolean"
             ]);
             $update = "completed";
             $update_key = "status";
-        }else{
+        } else {
             $request->validate([
                 "content" => "required|string|filled",
             ]);
@@ -92,13 +92,13 @@ class TodoBarTasks extends Controller
         $project = $this->storage->find($project_id);
 
         if ($project) {
-            if(isset($project->tasks[$task_id])){
+            if (isset($project->tasks[$task_id])) {
 
                 $project->tasks[$task_id]->{$update} = $request->get($update_key);
 
                 $this->storage->update($project_id, $project);
                 return response()->json(["status" => "success"], 200);
-            }else{
+            } else {
                 return response()->json(["status" => "error", "error" => "We couldn't find the task that you wanted to update."], 200);
             }
         } else {
@@ -117,12 +117,12 @@ class TodoBarTasks extends Controller
         $project = $this->storage->find($project_id);
 
         if ($project) {
-            if(isset($project->tasks[$task_id])){
+            if (isset($project->tasks[$task_id])) {
                 unset($project->tasks[$task_id]);
                 $project->tasks = array_values($project->tasks);
                 $this->storage->update($project_id, $project);
                 return response()->json(["status" => "success"], 200);
-            }else{
+            } else {
                 return response()->json(["status" => "error", "error" => "We couldn't find the task that you wanted to update."], 200);
             }
         } else {
